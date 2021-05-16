@@ -1,4 +1,5 @@
 " The MIT License (MIT)
+
 "
 " Copyright (c) 2016 Junegunn Choi
 "
@@ -114,8 +115,12 @@ noremap!        <plug>(slash-nop)     <nop>
 cmap <expr> <cr> <sid>wrap("\<cr>")
 map  <expr> n    <sid>wrap('n')
 map  <expr> N    <sid>wrap('N')
-map  <expr> gd   <sid>wrap('gd')
-map  <expr> gD   <sid>wrap('gD')
+
+if exists('g:vim_slash_enable_mapping_g')
+  map  <expr> gd   <sid>wrap('gd')
+  map  <expr> gD   <sid>wrap('gD')
+endif
+
 map  <expr> *    <sid>wrap(<sid>immobile('*'))
 map  <expr> #    <sid>wrap(<sid>immobile('#'))
 map  <expr> g*   <sid>wrap(<sid>immobile('g*'))
